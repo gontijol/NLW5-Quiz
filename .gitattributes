@@ -1,2 +1,3 @@
 # Exclude compiled file from github statistics
 **/*.dart.js linguist-generated=true
+**/*.cpp linguist-generated=true
