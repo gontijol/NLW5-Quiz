@@ -1,37 +1,40 @@
-import 'package:flutter/material.dart';
-
 import 'package:devquiz/challenge/widgets/answer/answer_widget.dart';
-import 'package:devquiz/core/core.dart';
+import 'package:devquiz/core/app_text_styles.dart';
+import 'package:flutter/material.dart';
 
 class QuizWidget extends StatelessWidget {
   final String title;
-  const QuizWidget({Key? key, required this.title}) : super(key: key);
+  QuizWidget({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(title, style: AppTextStyles.heading),
+          Text(
+            title,
+            style: AppTextStyles.heading,
           ),
-          SizedBox(height: 24),
+          SizedBox(
+            height: 24,
+          ),
           AnswerWidget(
+            title:
+                'Possibilita a criação de aplicativos compilados nativamente.',
+            isSelected: true,
             isRight: true,
-            isSelected: true,
-            title: 'Enables the creation of applications natively compiled',
           ),
           AnswerWidget(
-            isRight: false,
-            isSelected: true,
-            title: 'Enables the creation of applications natively compiled',
+            title:
+                'Possibilita a criação de aplicativos compilados nativamente.',
           ),
           AnswerWidget(
-            title: 'Enables the creation of applications natively compiled',
+            title:
+                'Possibilita a criação de aplicativos compilados nativamente.',
           ),
           AnswerWidget(
-            title: 'Enables the creation of applications natively compiled',
+            title:
+                'Possibilita a criação de aplicativos compilados nativamente.',
           ),
         ],
       ),

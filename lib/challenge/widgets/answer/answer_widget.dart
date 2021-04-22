@@ -1,18 +1,18 @@
+import 'package:devquiz/core/app_colors.dart';
+import 'package:devquiz/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
-
-import 'package:devquiz/core/core.dart';
 
 class AnswerWidget extends StatelessWidget {
   final String title;
   final bool isRight;
   final bool isSelected;
 
-  const AnswerWidget({
-      Key? key, 
-      required this.title, 
-      this.isRight = false, 
-      this.isSelected = false,
-  }) : super(key: key);
+  AnswerWidget(
+      {Key? key,
+      required this.title,
+      this.isRight = false,
+      this.isSelected = false})
+      : super(key: key);
 
   Color get _selectedColorRight =>
       isRight ? AppColors.darkGreen : AppColors.darkRed;
@@ -20,6 +20,7 @@ class AnswerWidget extends StatelessWidget {
   Color get _selectedBorderRight =>
       isRight ? AppColors.lightGreen : AppColors.lightRed;
 
+  // ignore: unused_element
   Color get _selectedColorCardRight =>
       isRight ? AppColors.lightGreen : AppColors.lightRed;
 
@@ -37,11 +38,13 @@ class AnswerWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Container(
         padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-          color: isSelected ? _selectedColorCardRight : AppColors.white,
+        decoration: BoxDecoration(
+          color: isSelected ? _selectedBorderCardRight : AppColors.white,
           borderRadius: BorderRadius.circular(10),
-          border: Border.fromBorderSide(BorderSide(
-            color: isSelected ? _selectedBorderCardRight : AppColors.border),
+          border: Border.fromBorderSide(
+            BorderSide(
+              color: isSelected ? _selectedBorderCardRight : AppColors.border,
+            ),
           ),
         ),
         child: Row(
@@ -49,11 +52,11 @@ class AnswerWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                title, style: isSelected 
-                    ? _selectedTextStyleRight : AppTextStyles.body,
+                title,
+                style:
+                    isSelected ? _selectedTextStyleRight : AppTextStyles.body,
               ),
             ),
-            SizedBox(width: 16),
             Container(
               width: 24,
               height: 24,
@@ -67,8 +70,12 @@ class AnswerWidget extends StatelessWidget {
                 ),
               ),
               child: isSelected
-                ? Icon(_selectedIconRight, color: AppColors.white, size: 16) 
-                : null,
+                  ? Icon(
+                      isSelected ? _selectedIconRight : Icons.check,
+                      size: 16,
+                      color: Colors.white,
+                    )
+                  : null,
             ),
           ],
         ),

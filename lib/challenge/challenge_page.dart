@@ -4,8 +4,6 @@ import 'widgets/question_indicator/question_indicator_widget.dart';
 import 'widgets/quiz/quiz_widget.dart';
 
 class ChallengePage extends StatefulWidget {
-  ChallengePage({Key? key}) : super(key: key);
-
   @override
   _ChallengePageState createState() => _ChallengePageState();
 }
@@ -22,7 +20,7 @@ class _ChallengePageState extends State<ChallengePage> {
         ),
       ),
       body: QuizWidget(
-        title: 'What does the Flutter do in your wholeness?',
+        title: "Oque o Flutter faz em sua totalidade?",
       ),
     );
   }

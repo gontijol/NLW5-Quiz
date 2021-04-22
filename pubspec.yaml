@@ -1,5 +1,5 @@
 name: devquiz
-description: DevQuiz - Gabul DEV
+description: DevQuiz - Luigi Gontijo
 version: 1.0.0+1
 
 environment:
@@ -18,5 +18,6 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/database/
 
   uses-material-design: true
