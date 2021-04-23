@@ -1,6 +1,6 @@
 {
-    "name": "exemplo",
-    "short_name": "exemplo",
+    "name": "devquiz",
+    "short_name": "devquiz",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

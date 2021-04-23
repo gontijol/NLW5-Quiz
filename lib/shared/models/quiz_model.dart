@@ -2,24 +2,24 @@ import 'dart:convert';
 
 import 'question_model.dart';
 
-enum Level { facil, medio, dificil, perito }
+enum Level { easy, middle, hard, expert }
 
-extension LevelStringExt on String {
+extension LevelStringExtension on String {
   Level get parse => {
-        "facil": Level.facil,
-        "medio": Level.medio,
-        "dificil": Level.dificil,
-        "perito": Level.perito
-      }[this]!;
+    'easy': Level.easy, 
+    'middle': Level.middle, 
+    'hard': Level.hard, 
+    'expert': Level.expert
+  }[this]!;
 }
 
-extension LevelExt on Level {
+extension LevelExtension on Level {
   String get parse => {
-        Level.facil: "facil",
-        Level.medio: "medio",
-        Level.dificil: "dificil",
-        Level.perito: "perito"
-      }[this]!;
+    Level.easy: 'easy' , 
+    Level.middle: 'middle' , 
+    Level.hard: 'hard' , 
+    Level.expert: 'expert',
+  }[this]!;
 }
 
 class QuizModel {

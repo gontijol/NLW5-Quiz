@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(exemplo LANGUAGES CXX)
+project(nlw5devquiz LANGUAGES CXX)
 
-set(BINARY_NAME "exemplo")
+set(BINARY_NAME "nlw5devquiz")
 
 cmake_policy(SET CMP0063 NEW)
 

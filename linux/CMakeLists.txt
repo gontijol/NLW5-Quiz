@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "exemplo")
-set(APPLICATION_ID "com.example.exemplo")
+set(BINARY_NAME "nlw5devquiz")
+set(APPLICATION_ID "com.example.nlw5devquiz")
 
 cmake_policy(SET CMP0063 NEW)
 
