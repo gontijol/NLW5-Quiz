@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 10),
               Expanded(
                 child: GridView.count(
-                  crossAxisSpacing: 14,
+                  crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
                   children: controller.quizzes!

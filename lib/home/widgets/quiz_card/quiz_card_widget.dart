@@ -21,37 +21,43 @@ class QuizCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 20,
-              width: 20,
-              child: Image.asset(AppImages.blocks),
-            ),
-            SizedBox(height: 10),
-            Text(title, style: AppTextStyles.heading15),
-            SizedBox(height: 10),
-            Row(
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Container(
+          padding: const EdgeInsets.all(7),
+          decoration: BoxDecoration(
+            border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(completed, style: AppTextStyles.body11),
+                Container(
+                  height: 17,
+                  width: 17,
+                  child: Image.asset(AppImages.blocks),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: ProgressIndicatorWidget(value: percent),
+                SizedBox(height: 10),
+                Text(title, style: AppTextStyles.heading15),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(completed, style: AppTextStyles.body11),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: ProgressIndicatorWidget(value: percent),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
