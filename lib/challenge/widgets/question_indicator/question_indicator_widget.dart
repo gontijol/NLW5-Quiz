@@ -23,9 +23,9 @@ class QuestionIndicatorWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text('Questão'),
-              Text('($currentPage)', style: AppTextStyles.body),
+              Text('$currentPage', style: AppTextStyles.body),
               Text('de'),
-              Text('($length)', style: AppTextStyles.body),
+              Text('$length', style: AppTextStyles.body),
             ],
           ),
           SizedBox(height: 16),

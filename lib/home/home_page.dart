@@ -34,26 +34,29 @@ class _HomePageState extends State<HomePage> {
       return Scaffold(
         appBar: AppBarWidget(user: controller.user!),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              SizedBox(
-                height: 34,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  children: [
-                    LevelButtonWidget(label: 'Fácil'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Médio'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Difícil'),
-                    SizedBox(width: 10),
-                    LevelButtonWidget(label: 'Perito'),
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: SizedBox(
+                  height: 32,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: [
+                      LevelButtonWidget(label: 'Fácil'),
+                      SizedBox(width: 10),
+                      LevelButtonWidget(label: 'Médio'),
+                      SizedBox(width: 10),
+                      LevelButtonWidget(label: 'Difícil'),
+                      SizedBox(width: 10),
+                      LevelButtonWidget(label: 'Perito'),
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Expanded(
                 child: GridView.count(
                   crossAxisSpacing: 16,
@@ -69,16 +72,20 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      ChallengePage(questions: e.questions),
+                                  builder: (context) => ChallengePage(
+                                    title: e.title,
+                                    questions: e.questions,
+                                  ),
                                 ));
                           },
                           percent: e.questionAnswered / e.questions.length,
+                          image: e.image,
                         ),
                       )
                       .toList(),
                 ),
               ),
+              SizedBox(height: 20),
             ],
           ),
         ),

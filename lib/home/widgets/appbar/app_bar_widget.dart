@@ -37,11 +37,23 @@ class AppBarWidget extends PreferredSize {
                         height: 58,
                         width: 58,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(
                             image: NetworkImage(user.photoUrl),
                             fit: BoxFit.cover,
                           ),
+                          boxShadow: [
+                            //background color of box
+                            BoxShadow(
+                              color: Colors.black,
+                              blurRadius: 4.0, // soften the shadow
+                              spreadRadius: 1, //extend the shadow
+                              offset: Offset(
+                                1.0, // Move to right 10  horizontally
+                                1.0, // Move to bottom 10 Vertically
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ],
@@ -49,7 +61,7 @@ class AppBarWidget extends PreferredSize {
                 ),
                 Align(
                   alignment: Alignment(0.0, 1.0),
-                  child: ScoreCardWidget(),
+                  child: ScoreCardWidget(percent: user.score / 100),
                 ),
               ],
             ),

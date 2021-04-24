@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'challenge_controller.dart';
 import 'widgets/question_indicator/question_indicator_widget.dart';
 import 'widgets/quiz/quiz_widget.dart';
+import 'package:devquiz/result/result_page.dart';
 import 'package:devquiz/shared/models/question_model.dart';
 import 'widgets/next_button/next_button_widget.dart';
 
 class ChallengePage extends StatefulWidget {
   final List<QuestionModel> questions;
-  ChallengePage({Key? key, required this.questions}) : super(key: key);
+  final String title;
+
+  ChallengePage({Key? key, required this.questions, required this.title})
+      : super(key: key);
 
   @override
   _ChallengePageState createState() => _ChallengePageState();
@@ -32,6 +36,13 @@ class _ChallengePageState extends State<ChallengePage> {
         duration: Duration(milliseconds: 500),
         curve: Curves.linear,
       );
+  }
+
+  void onSelected(bool value) {
+    if (value) {
+      controller.quantityAnswer++;
+    }
+    nextPage();
   }
 
   @override
@@ -62,14 +73,14 @@ class _ChallengePageState extends State<ChallengePage> {
         children: widget.questions
             .map((e) => QuizWidget(
                   question: e,
-                  onChanged: nextPage,
+                  onSelected: onSelected,
                 ))
             .toList(),
       ),
       bottomNavigationBar: SafeArea(
         bottom: true,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
+          padding: const EdgeInsets.only(bottom: 20, left: 60, right: 60),
           child: ValueListenableBuilder<int>(
             valueListenable: controller.currentPageNotifier,
             builder: (context, value, _) => Row(
@@ -87,7 +98,16 @@ class _ChallengePageState extends State<ChallengePage> {
                     child: NextButtonWidget.green(
                       label: 'Confirmar',
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ResultPage(
+                              title: widget.title,
+                              length: widget.questions.length,
+                              result: controller.quantityAnswer,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),
